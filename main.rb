@@ -13,10 +13,10 @@ synthia_amp = 0.1
 
 define :play_synthia_sustained do | note, release_length = 2|
   use_synth synthia_type
-  in_thread do
-    with_fx :level, amp: synthia_amp do
-      play note, attack: 0.05, release: release_length
-    end
+  
+  with_fx :level, amp: synthia_amp do
+    play note, attack: 0.05, release: release_length
+    
   end
 end
 
@@ -104,6 +104,7 @@ end
 
 in_thread(name: :synthia_does_what_synthia_does) do
   use_bpm 60
+  sync :flibble_go
   loop do
     part_1_bars. times do
       play_synthia_sustained chord(:E4, :minor)
