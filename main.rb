@@ -1,3 +1,5 @@
+# Welcome to Sonic Pi
+
 part_1_bars = 4
 interlude_bars = 2
 
@@ -13,8 +15,8 @@ live_loop :flibble do
     sleep 4
   end
   interlude_bars. times do
-    sample :guit_em9, rate: 0.5
-    sample :guit_e_fifths
+    sample :guit_em9, rate: 0.5, pan: 1
+    sample :guit_e_fifths, pan: -1
     sleep 4
   end
   cue :flibble_pause
