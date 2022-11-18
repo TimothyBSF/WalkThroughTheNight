@@ -52,14 +52,13 @@ end
 
 define :beatVariation do
   sample :drum_bass_soft
-  sleep 0.5
-  sample :drum_cymbal_hard
-  sleep 0.5
-  sample :drum_cymbal_soft
-  sleep 0.5
-  sample :drum_tom_mid_soft
+  sample :drum_splash_hard
   sleep 1
-  sample :drum_tom_lo_soft
+  sample :drum_bass_soft
+  sleep 1
+  sample :drum_bass_soft
+  sleep 0.5
+  sample :drum_bass_soft
   sleep 1
   sample :drum_bass_soft
   sleep 0.5
