@@ -9,7 +9,7 @@ part_1_bars = 4
 interlude_bars = 2
 
 synthia_type = :dpulse
-synthia_amp = 0.1
+synthia_amp = 0.3
 
 define :play_synthia_sustained do | note, release_length = 2|
   use_synth synthia_type
@@ -113,11 +113,15 @@ in_thread(name: :synthia_does_what_synthia_does) do
       sleep 1
       play_synthia_sustained  chord(:Fs, :diminished)
       sleep 1
-      play_synthia_sustained chord(:A, :minor)
-      sleep 1
+      with_fx :wobble do
+        play_synthia_sustained chord(:A, :minor)
+        sleep 1
+      end
     end
     interlude_bars. times do
-      play_synthia_sustained chord(:E4, :minor), 4
+      with_fx :wobble do
+        play_synthia_sustained chord(:E4, :minor), 4
+      end
       sleep 4
     end
     interlude_bars. times do
@@ -127,8 +131,10 @@ in_thread(name: :synthia_does_what_synthia_does) do
       sleep 1
       play_synthia_sustained chord(:Fs, :diminished)
       sleep 1
-      play_synthia_sustained chord(:D, :major)
-      sleep 1
+      with_fx :wobble do
+        play_synthia_sustained chord(:D, :major)
+        sleep 1
+      end
     end
     interlude_bars. times do
       play_synthia_sustained chord(:Fs4, :diminished)
@@ -137,8 +143,10 @@ in_thread(name: :synthia_does_what_synthia_does) do
       sleep 1
       play_synthia_sustained chord(:C, :major)
       sleep 1
-      play_synthia_sustained chord(:D, :major)
-      sleep 1
+      with_fx :wobble do
+        play_synthia_sustained chord(:D, :major)
+        sleep 1
+      end
     end
   end
 end
